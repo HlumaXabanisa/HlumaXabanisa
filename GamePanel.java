@@ -122,7 +122,7 @@ public class GamePanel implements ActionListener {
 		 }
 		 
 		 if(tie) {
-			 isTie();
+			 isTie();// this is a tie method
 		 }
 
 		 
