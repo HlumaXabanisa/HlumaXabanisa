@@ -146,7 +146,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	 }
 	 
 	 public void check() {     //check winner
-		
+
 		 boolean tie = true;
 		 for(int i = 0; i < 9; i++) {
 			 if(buttons[i].getText()=="") {
@@ -156,6 +156,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		 
 		 if(tie) {
 			 isTie();// this is a tie method
+			 //hluma
 		 }
 
 		 
