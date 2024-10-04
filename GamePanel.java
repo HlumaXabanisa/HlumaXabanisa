@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
@@ -49,6 +48,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			// Restart the game
 			player1();
 		}
+		
 		
 	
 	GamePanel (){
