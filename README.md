@@ -3,11 +3,13 @@
 Contributors
 
 1.Thabile Nyalungu
+
 2.Ahluma Xabanisa
 
 Mentors
 
 Panashe Matirekwe
+
 Tywin 
 
 # Project Description 
