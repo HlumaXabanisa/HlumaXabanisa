@@ -1,10 +1,12 @@
 # Tic-Tac-Toe Development Program 
 
 Contributors
+
 1.Thabile Nyalungu
 2.Ahluma Xabanisa
 
-Mentor
+Mentors
+
 Panashe Matirekwe
 Tywin 
 
