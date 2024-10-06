@@ -1,14 +1,15 @@
+
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import java.lang.*;
 import javax.swing.*;
 
-public class GamePanel extends JPanel implements ActionListener {
+public class GamePanel implements ActionListener {
 	Thread gameThread; 
 	Random rand= new Random();
 	JFrame frame =  new JFrame("Tic-Tac-Toe");
-	// JPanel this= new JPanel();
+	JPanel panel= new JPanel();
 	
 	JPanel button=new JPanel();
 	JLabel txt= new JLabel(); //label to display text field
@@ -16,40 +17,6 @@ public class GamePanel extends JPanel implements ActionListener {
 	JButton [] buttons = new JButton[9];
 	boolean X_turn; //true if X false if y
 	
-	public void resetPanel() {
-			// Clear the existing panel
-			this.removeAll();
-			
-			// Reinitialize the label
-			txt.setText("Tic-Tac-Toe");
-			txt.setForeground(Color.BLACK);
-			
-			// Reinitialize buttons
-			button.removeAll(); // Clear old buttons
-			for (int i = 0; i < 9; i++) {
-				buttons[i] = new JButton();
-				buttons[i].setFont(new Font("MV Boli", Font.BOLD, 120));
-				buttons[i].setFocusable(false);
-				buttons[i].setBackground(new Color(200, 200, 200));
-				buttons[i].addActionListener(this);
-				button.add(buttons[i]);
-			}
-			
-			// Add components back to the panel
-			this.add(txt);
-			frame.add(this,BorderLayout.NORTH);
-			frame.add(button);
-			
-			// this.add(button);
-			
-			// Revalidate and repaint
-			this.revalidate();
-			this.repaint();
-			// Restart the game
-			player1();
-		}
-		
-		
 	
 	GamePanel (){
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,18 +24,18 @@ public class GamePanel extends JPanel implements ActionListener {
 		//frame.getContentPane().setBackground(new Color(0, 0 ,153));
 		frame.setLayout(new BorderLayout());
 		frame.setVisible(true);
-		frame.setLocationRelativeTo(null);
+		
 		
 		txt.setBackground(new Color(169,169,169));//dark grey
 		txt.setForeground(new Color(0,0,0));//text color
-		txt.setFont(new Font("Comic Sans MS", Font.BOLD, 75));
+		txt.setFont(new Font("Wide Latin", Font.BOLD, 75));
 
 		txt.setHorizontalAlignment(JLabel.CENTER);
 		txt.setText("Tic-Tac-Toe");
 		txt.setOpaque(true);
 		
-		this.setLayout(new BorderLayout());
-		this.setBounds(0,0,800,100); //where to start
+		panel.setLayout(new BorderLayout());
+		panel.setBounds(0,0,800,100); //where to start
 		
 		button.setLayout(new GridLayout(3,3));
 		button.setForeground(new Color(169, 169, 169));//grey
@@ -84,8 +51,8 @@ public class GamePanel extends JPanel implements ActionListener {
 			buttons[i].setBackground(new Color(200, 200, 200));
 		}
 		
-		this.add(txt);
-		frame.add(this,BorderLayout.NORTH);
+		panel.add(txt);
+		frame.add(panel,BorderLayout.NORTH);
 		frame.add(button);
 		
 		player1();
@@ -146,7 +113,6 @@ public class GamePanel extends JPanel implements ActionListener {
 	 }
 	 
 	 public void check() {     //check winner
-
 		 boolean tie = true;
 		 for(int i = 0; i < 9; i++) {
 			 if(buttons[i].getText()=="") {
@@ -155,8 +121,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		 }
 		 
 		 if(tie) {
-			 isTie();// this is a tie method
-			 //hluma
+			 player1Wins(0, 1, 2);
 		 }
 
 		 
@@ -308,13 +273,6 @@ public class GamePanel extends JPanel implements ActionListener {
 			 player2Wins(2,4,6);
 			 
 		 }
-		 
-		
-	 }
-		 
-
-		 
-
 	 
 	public void player1Wins(int x,int y, int z) {
 		buttons[x].setBackground(Color.GREEN);
@@ -327,12 +285,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			
 		}
 		txt.setText("X is the winner!");
-		int result= JOptionPane.showConfirmDialog(null, "Do you still want to continue?", "Confirmation", JOptionPane.YES_NO_OPTION);
-		if(result == 0){
-			resetPanel();
-		}else{
-			System.exit(0);
-		}
+		
 	}
 	public void player2Wins(int x,int y, int z) {
 		buttons[x].setBackground(Color.GREEN);
@@ -345,7 +298,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			
 		}
 		txt.setText("O is the winner!");
-		int result= JOptionPane.showConfirmDialog(null, "Do you still want to continue?", "Confirmation", JOptionPane.YES_NO_OPTION);
+		
 		
 	}
 	
