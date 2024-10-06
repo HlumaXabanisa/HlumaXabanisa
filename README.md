@@ -29,5 +29,15 @@ The game is played by 2 players. The first player will click using the mouse on 
 The first player to get their marks up a row, column opr diagonally wins the game, else its a tie no one wins the game.
 
 # Limitations
+
 Players or users are assumed to know how to play the game. 
+
+Its a single player game
+
+Cant play against the computer 
+
+Theres no sound when clicking
+
+Used basic graphic user interface
+
 
