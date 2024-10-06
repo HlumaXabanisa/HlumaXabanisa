@@ -5,40 +5,44 @@ import java.awt.event.ActionListener;
 
 public class Background extends JFrame {
     public Background() {
-        setTitle("Game with Black Background");
+        setTitle("Main Menu");
         setSize(800, 800);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        JPanel panel = new JPanel();
-        panel.setBackground(Color.BLACK);
+
+		image panel=new image();
         panel.setLayout(null);
 
-        JLabel titleLabel = new JLabel("Tic Tac Toe");
-        titleLabel.setForeground(Color.WHITE);
-        titleLabel.setFont(new Font("Bauhaus 93", Font.BOLD, 65));
-        titleLabel.setBounds(200, 50, 400, 100);
-        panel.add(titleLabel);
+        //JLabel titleLabel = new JLabel("Tic Tac Toe");
+		
+		
 
-        JButton single = new JButton("Single Player");
+        /*titleLabel.setForeground(Color.WHITE);
+        titleLabel.setFont(new Font("Goudy Stout", Font.BOLD, 32));
+        titleLabel.setBounds(200, 50, 400, 100);*/
+        //panel.add(titleLabel);
+
+
+        JButton single = new JButton("PLAY GAME");
         single.setFont(new Font("Bauhaus 93", Font.BOLD, 50));
-        single.setBounds(200, 200, 400, 100);
+        single.setBounds(400, 330, 400, 100);
 		single.setOpaque(false);
 		single.setContentAreaFilled(false);
 		single.setBorderPainted(false);
 		single.setBorder( null );
-		single.setForeground(Color.GREEN);
-		setResizable(false);
+		single.setForeground(Color.WHITE);
 		
 		
-		JButton exit = new JButton("Quit ?");
+		JButton exit = new JButton("QUIT");
         exit.setFont(new Font("Bauhaus 93", Font.BOLD, 50));
-        exit.setBounds(200, 400, 400, 100);
+        exit.setBounds(400, 450, 400, 100);
 		exit.setOpaque(false);
 		exit.setContentAreaFilled(false);
 		exit.setBorderPainted(false);
 		exit.setBorder( null );
-		exit.setForeground(Color.PINK);
+		exit.setForeground(Color.WHITE);
+		
 		
 		
 		
@@ -49,20 +53,29 @@ public class Background extends JFrame {
             }
         });
 		
+		
+		
 		exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+		
+		
+		
         panel.add(single);
 		panel.add(exit);
         add(panel);
         setVisible(true);
+		setResizable(false);
+		
 		
     }
+	
 
     public static void main(String[] args) {
+	
         new Background();
     }
 }
